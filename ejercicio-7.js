@@ -15,10 +15,25 @@ const exams = [
 ];
 
 const sum = exams.reduce((acc, currentScore) => acc + currentScore.score, 0);
-console.log(sum);
+// console.log(sum);
 
 // 7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los 
 // alumnos que esten aprobados usando la función .reduce().
 
+// Utilizamos el método reduce para sumar las notas mayores que 5
+const sumPassed = exams.reduce((acc, currentScore) => {
+    // Verificamos si la nota es mayor o igual que 5 antes de sumar
+    if (currentScore.score >= 5) {
+      return acc + currentScore.score;
+    } else {
+      return acc;
+    }
+  }, 0);
+  
+console.log('La suma de las notas mayores o iguales a 5 es:', sumPassed);
 
 // 7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
+
+const average = exams.reduce((acc, currentScore) => acc += currentScore.score / exams.length, 0);
+
+console.log("La media de todos los exámenes es: ", average.toFixed(2));
